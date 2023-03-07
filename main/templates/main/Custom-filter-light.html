@@ -1,9 +1,11 @@
 {% extends "index.html" %}
 {% load static %}
 {% load i18n %}
-
+{% block title %}
+Custom Filter
+{% endblock title %}
 {% block content %}
-            <div class="content">
+    <div class="content">
                 <div class="intro-y flex items-center mt-8">
                     <h2 class="text-lg font-medium mr-auto">
                         Custom Filters
@@ -99,11 +101,7 @@
 
                     </div>
                 </div>
-            </div>
-
-
-       
-
+    </div>
 
 <!-- BEGIN: Dark Mode Switcher-->
 <div data-url="{% url 'main:Custom-filter-dark' %}" class="dark-mode-switcher cursor-pointer shadow-md fixed bottom-0 right-0 box dark:bg-dark-2 border rounded-full w-40 h-12 flex items-center justify-center z-50 mb-10 mr-10">
@@ -112,4 +110,4 @@
 </div>
 <!-- END: Dark Mode Switcher-->
 
-        {% endblock content %}
+    {% endblock content %}

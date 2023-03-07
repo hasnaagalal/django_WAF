@@ -14,7 +14,7 @@
         <meta name="description" content="Enigma admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
         <meta name="keywords" content="admin template, Enigma Admin Template, dashboard template, flat admin template, responsive admin template, web app">
         <meta name="author" content="LEFT4CODE">
-        <title>Dashboard</title>
+        <title>{% block title %} {% endblock title %}</title>
         <!-- BEGIN: CSS Assets-->
         <link rel="stylesheet" href="{% static 'dist/css/app.css' %}" />
         <!-- END: CSS Assets-->
@@ -126,7 +126,7 @@
                                 <hr class="dropdown-divider border-white/[0.08]">
                             </li>
                             <li>
-                                <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="toggle-right" class="w-4 h-4 mr-2"></i> Logout </a>
+                                <a href="{% url 'main:login-light' %}" class="dropdown-item hover:bg-white/5"> <i data-lucide="toggle-right" class="w-4 h-4 mr-2"></i> Logout </a>
                             </li>
                         </ul>
                     </div>
@@ -192,14 +192,14 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="server-Configurations-light.html" class="side-menu">
+                                <a href="{% url 'main:server-Configurations-light'%}" class="side-menu">
                                     <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
                                     <div class="side-menu__title"> Servers Configurations </div>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="Reporting-light.html" class="side-menu">
+                                <a href="{% url 'main:Reporting-light' %}" class="side-menu">
                                     <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
                                     <div class="side-menu__title"> Reporting </div>
                                 </a>
@@ -219,13 +219,13 @@
                         <ul class="">
 
                             <li>
-                                <a href="Change-Password-light.html" class="side-menu">
+                                <a href="{% url 'main:Change-password-light'%}" class="side-menu">
                                     <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
                                     <div class="side-menu__title"> Change Password </div>
                                 </a>
                             </li>
                             <li>
-                                <a href="Users-and-Permissions-light.html" class="side-menu">
+                                <a href="{% url 'main:Users-and-Permissions-light'%}" class="side-menu">
                                     <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
                                     <div class="side-menu__title"> Users & Permissions </div>
                                 </a>

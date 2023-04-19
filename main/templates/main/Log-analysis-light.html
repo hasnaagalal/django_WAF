@@ -10,7 +10,7 @@ Log Analysis
         <table class="table table-report -mt-2">
             <thead>
                 <tr>
-                    <th class="whitespace-nowrap">Request ID</th>
+                    <th class="whitespace-nowrap">Request id</th>
                     <th class="whitespace-nowrap">Date</th>
                     <th class="text-center whitespace-nowrap">Path</th>
                     <th class="text-center whitespace-nowrap">Endpoint</th>
@@ -21,28 +21,30 @@ Log Analysis
             </thead>
 
             <tbody>
+                {% for blockedclient in blockedclients %}
                 <tr class="intro-x">
                     <td class="w-40">
                         <div class="flex">
-                            <a href="" class="font-medium whitespace-nowrap">548895</a>
+                            <a href="" class="font-medium whitespace-nowrap">{{blockedclient.id}}</a>
                         </div>
                     </td>
                     <td>
-                        2023/01/25
+                       {{blockedclient.date}}
                     </td>
-                    <td class="text-center">/index.php</td>
-                    <td class="text-center">?message=%22%3E%3Cscript%3Ealert(%27Naughty!%27);</td>
+                    <td class="text-center">{{blockedclient.path}}</td>
+                    <td class="text-center">{{blockedclient.endpoint}}</td>
 
-                    <td class="text-center">201.159.99.58</td>
+                    <td class="text-center">{{blockedclient.client_ip}}</td>
 
                     <!--
                         <div class="flex items-center justify-center text-success"> <i data-lucide="check-square" class="w-4 h-4 mr-2"></i> Active </div>-->
                     </td>
-                    <td class="text-center">xss</td>
+                    <td class="text-center">{{blockedclient.overview}}</td>
                     <td class="text-center">1</td>
 
                     </td>
                 </tr>
+                {% endfor %}
                 <tr class="intro-x">
                     <td class="w-40">
                         <div class="flex">
@@ -955,12 +957,7 @@ Log Analysis
 
 </div>
 
-<!-- BEGIN: Dark Mode Switcher-->
-<div data-url="{% url 'main:log-analysis-dark' %}" class="dark-mode-switcher cursor-pointer shadow-md fixed bottom-0 right-0 box dark:bg-dark-2 border rounded-full w-40 h-12 flex items-center justify-center z-50 mb-10 mr-10">
-    <div class="mr-4 text-gray-700 dark:text-gray-300">Dark Mode</div>
-    <div class="dark-mode-switcher__toggle border"></div>
-</div>
-<!-- END: Dark Mode Switcher-->
+
 
 {% endblock content %}
 

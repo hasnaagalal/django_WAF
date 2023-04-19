@@ -1,6 +1,5 @@
 {% extends "index.html" %}
 {% load static %}
-{% load i18n %}
 {% block title %}
 Custom Filter
 {% endblock title %}
@@ -17,24 +16,30 @@ Custom Filter
 
                             <div class="intro-y col-span-12 lg:col-span-6">
                                 <!-- BEGIN: Input -->
+                                
                                 <div class="intro-y box">
-
+                                    <form method='POST' enctype="multipart/form-data">
+                                        {% csrf_token %}
                                     <div id="input" class="p-5">
+                                        
                                         <div class="preview">
                                             <div>
                                                 <h2 class="font-medium text-base mr-auto">
                                                     Specific Filters
                                                 </h2>
                                                 <table class="table">
-                                                    <td><input id="regular-form-1" type="text" class="form-control" style="width:290px" placeholder="Specific Filters"></td>
-                                                    <td> <button class="btn btn-primary w-24 mr-10 mb-2">Add</button></td>
+                                                    <td><input id="regular-form-1" type="text" class="form-control" style="width:290px" placeholder="Specific Filters" name= "name"></td>
+                                                    <td> <button class="btn btn-primary w-24 mr-10 mb-2" type="submit" value="save" >Add</button></td>
                                                 </table>
 
 
                                             </div>
                                         </div>
+                                        
                                     </div>
+                                    </form>
                                 </div>
+                                
                                 <!-- END: Input -->
                         <!-- BEGIN: Striped Rows -->
                         <div class="intro-y box mt-5">
@@ -46,6 +51,7 @@ Custom Filter
 
                             </div>
                             <div class="p-5" id="striped-rows-table">
+                                
                                 <div class="preview">
                                     <div class="overflow-x-auto">
                                         <table class="table table-striped">
@@ -58,43 +64,24 @@ Custom Filter
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                {% for pattern in patterns %}
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>SELECT</td>
+                                                    <td>{{pattern.id}}</td>
+                                                    <td>{{pattern.name}}</td>
 
                                                     <td><div class="form-check form-switch w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0">
                                                         <input id="show-example-1" data-target="#basic-dropdown" class="show-code form-check-input mr-0 ml-3" type="checkbox"checked>
 
                                                     </div></td>
+                                                    
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>script</td>
-
-                                                    <td><div class="form-check form-switch w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0">
-                                                        <input id="show-example-1" data-target="#basic-dropdown" class="show-code form-check-input mr-0 ml-3" type="checkbox"checked>
-                                                    </div></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>127.1</td>
-                                                    <td><div class="form-check form-switch w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0">
-                                                        <input id="show-example-1" data-target="#basic-dropdown" class="show-code form-check-input mr-0 ml-3" type="checkbox">
-                                                    </div></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>127.0.0.1</td>
-                                                    <td><div class="form-check form-switch w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0">
-                                                        <input id="show-example-1" data-target="#basic-dropdown" class="show-code form-check-input mr-0 ml-3" type="checkbox"checked>
-                                                    </div></td>
-                                                </tr>
+                                                {% endfor %}
+                                                
+                                                
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                         <!-- END: Striped Rows -->
@@ -103,11 +90,6 @@ Custom Filter
                 </div>
     </div>
 
-<!-- BEGIN: Dark Mode Switcher-->
-<div data-url="{% url 'main:Custom-filter-dark' %}" class="dark-mode-switcher cursor-pointer shadow-md fixed bottom-0 right-0 box dark:bg-dark-2 border rounded-full w-40 h-12 flex items-center justify-center z-50 mb-10 mr-10">
-    <div class="mr-4 text-gray-700 dark:text-gray-300">Dark Mode</div>
-    <div class="dark-mode-switcher__toggle border"></div>
-</div>
-<!-- END: Dark Mode Switcher-->
+
 
     {% endblock content %}

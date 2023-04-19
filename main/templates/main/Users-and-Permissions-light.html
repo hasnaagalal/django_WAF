@@ -11,7 +11,7 @@ Users & Permissions
                 </h2>
                 <div class="grid grid-cols-12 gap-6 mt-5">
                     <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
-                        <button class="btn btn-primary shadow-md mr-2">Add New User</button>
+                        <button class="btn btn-primary shadow-md mr-2" type="submit" >Add New User</button>
                         <div class="dropdown">
                             <button class="dropdown-toggle btn px-2 box" aria-expanded="false" data-tw-toggle="dropdown">
                                 <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-lucide="plus"></i> </span>
@@ -171,10 +171,5 @@ Users & Permissions
                 </div>
                 <!-- END: Delete Confirmation Modal -->
 
-<!-- BEGIN: Dark Mode Switcher-->
-<div data-url="{% url 'main:Users-and-Permissions-light'%}" class="dark-mode-switcher cursor-pointer shadow-md fixed bottom-0 right-0 box dark:bg-dark-2 border rounded-full w-40 h-12 flex items-center justify-center z-50 mb-10 mr-10">
-    <div class="mr-4 text-gray-700 dark:text-gray-300">Dark Mode</div>
-    <div class="dark-mode-switcher__toggle border"></div>
-</div>
-<!-- END: Dark Mode Switcher-->
+
 {% endblock content %}
